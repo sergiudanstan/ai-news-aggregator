@@ -16,6 +16,19 @@ if cors_origins != '*':
     cors_origins = cors_origins.split(',')
 CORS(app, origins=cors_origins)
 
+@app.route('/')
+def home():
+    """Root endpoint - shows API is running"""
+    return jsonify({
+        'status': 'online',
+        'message': 'AI News Aggregator API',
+        'version': '1.0.0',
+        'endpoints': {
+            'health': '/api/health',
+            'fetch': '/api/fetch (POST)'
+        }
+    })
+
 @app.route('/api/fetch', methods=['POST'])
 def fetch_news():
     """Fetch news from provided RSS feeds"""
