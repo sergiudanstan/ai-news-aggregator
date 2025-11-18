@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI News Aggregator Dashboard</title>
+  <meta name="description" content="Real-time AI and technology news aggregation dashboard">
+</head>
+
+<body>
+  <div id="app">
+    <header class="header">
+      <h1>AI News Aggregator</h1>
+      <p>Real-time technology and AI news from around the web</p>
+    </header>
+
+    <div class="control-panel">
+      <div class="control-header">
+        <h2>📡 Feed Sources</h2>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span id="statusText">Ready</span>
+        </div>
+      </div>
+
+      <div class="feed-input-group">
+        <input type="text" id="feedInput" class="feed-input"
+          placeholder="Enter RSS feed URL (e.g., https://techcrunch.com/feed/)">
+        <button class="btn btn-secondary" id="addFeedBtn">+ Add Feed</button>
+        <button class="btn btn-primary" id="fetchBtn">🚀 Fetch News</button>
+      </div>
+
+      <div class="feed-input-group" style="margin-top: 1rem;">
+        <input type="text" id="keywordInput" class="feed-input"
+          placeholder="Enter keywords to filter (e.g., AI, machine learning, ChatGPT, OpenAI)">
+        <button class="btn btn-secondary" id="addKeywordBtn">+ Add Keyword</button>
+        <button class="btn btn-secondary" id="filterBtn">🔍 Filter Articles</button>
+      </div>
+
+      <div id="keywordList" class="feed-list" style="margin-top: 1rem;"></div>
+      <div id="feedList" class="feed-list"></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Articles</div>
+        <div class="stat-value" id="totalArticles">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Feeds</div>
+        <div class="stat-value" id="activeFeeds">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Last Updated</div>
+        <div class="stat-value" id="lastUpdated" style="font-size: 1.5rem;">Never</div>
+      </div>
+    </div>
+
+    <div class="articles-section">
+      <div class="section-header">
+        <h2>📰 Latest Articles</h2>
+        <button class="btn btn-secondary" id="clearBtn">Clear All</button>
+      </div>
+      <div id="articlesGrid" class="articles-grid">
+        <div class="empty-state">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+          </svg>
+          <h3>No articles yet</h3>
+          <p>Add RSS feeds and click "Fetch News" to get started</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
