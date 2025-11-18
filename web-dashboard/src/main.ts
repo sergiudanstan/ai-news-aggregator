@@ -129,14 +129,14 @@ clearBtn.addEventListener('click', () => {
 // Render feeds
 function renderFeeds() {
   if (feeds.length === 0) {
-    feedList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.875rem;">No feeds added yet</p>';
+    feedList.innerHTML = '<p style="color: var(--text-tertiary); font-size: 0.875rem;">No feeds added yet</p>';
     return;
   }
 
   feedList.innerHTML = feeds.map(feed => {
     const domain = extractDomain(feed);
     return `
-      <div class="feed-tag">
+      <div class="tag">
         <span>${domain}</span>
         <button onclick="window.removeFeed('${escapeHtml(feed)}')">×</button>
       </div>
@@ -282,7 +282,7 @@ function filterArticles() {
       return keywords.some(keyword => searchText.includes(keyword.toLowerCase()));
     });
 
-    filterBtn.textContent = '✖️ Clear Filter';
+    filterBtn.textContent = 'Clear Filter';
     filterBtn.classList.add('btn-primary');
     filterBtn.classList.remove('btn-secondary');
 
@@ -290,7 +290,7 @@ function filterArticles() {
     totalArticlesEl.textContent = `${filteredArticles.length} / ${articles.length}`;
   } else {
     // Show all articles
-    filterBtn.textContent = '🔍 Filter Articles';
+    filterBtn.textContent = 'Filter Articles';
     filterBtn.classList.remove('btn-primary');
     filterBtn.classList.add('btn-secondary');
 
@@ -302,21 +302,16 @@ function filterArticles() {
 // Render keywords
 function renderKeywords() {
   if (keywords.length === 0) {
-    keywordList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.875rem;">No keywords added yet (add at least 4 for best results)</p>';
+    keywordList.innerHTML = '<p style="color: var(--text-tertiary); font-size: 0.875rem;">No keywords added yet</p>';
     return;
   }
 
-  keywordList.innerHTML = `
-    <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.5rem;">
-      Keywords (${keywords.length}):
-    </p>
-    ${keywords.map(keyword => `
-      <div class="feed-tag" style="background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.3);">
-        <span style="color: var(--accent-primary); font-weight: 600;">${escapeHtml(keyword)}</span>
-        <button onclick="window.removeKeyword('${escapeHtml(keyword)}')">×</button>
-      </div>
-    `).join('')}
-  `;
+  keywordList.innerHTML = keywords.map(keyword => `
+    <div class="tag keyword">
+      <span>${escapeHtml(keyword)}</span>
+      <button onclick="window.removeKeyword('${escapeHtml(keyword)}')">×</button>
+    </div>
+  `).join('');
 }
 
 // Render filtered articles with keyword highlighting

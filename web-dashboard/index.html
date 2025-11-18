@@ -16,31 +16,29 @@
       <p>Real-time technology and AI news from around the web</p>
     </header>
 
-    <div class="control-panel">
+    <div class="control-panel glass-card">
       <div class="control-header">
-        <h2>📡 Feed Sources</h2>
+        <h2>Feed Sources</h2>
         <div class="status-badge">
           <span class="status-dot"></span>
           <span id="statusText">Ready</span>
         </div>
       </div>
 
-      <div class="feed-input-group">
-        <input type="text" id="feedInput" class="feed-input"
-          placeholder="Enter RSS feed URL (e.g., https://techcrunch.com/feed/)">
-        <button class="btn btn-secondary" id="addFeedBtn">+ Add Feed</button>
-        <button class="btn btn-primary" id="fetchBtn">🚀 Fetch News</button>
+      <div class="input-group">
+        <input type="text" id="feedInput" class="input-field" placeholder="Add RSS feed URL...">
+        <button class="btn btn-secondary" id="addFeedBtn">Add Feed</button>
+        <button class="btn btn-primary" id="fetchBtn">Fetch News</button>
       </div>
 
-      <div class="feed-input-group" style="margin-top: 1rem;">
-        <input type="text" id="keywordInput" class="feed-input"
-          placeholder="Enter keywords to filter (e.g., AI, machine learning, ChatGPT, OpenAI)">
-        <button class="btn btn-secondary" id="addKeywordBtn">+ Add Keyword</button>
-        <button class="btn btn-secondary" id="filterBtn">🔍 Filter Articles</button>
+      <div class="input-group">
+        <input type="text" id="keywordInput" class="input-field" placeholder="Add keywords to filter...">
+        <button class="btn btn-secondary" id="addKeywordBtn">Add Keyword</button>
+        <button class="btn btn-secondary" id="filterBtn">Filter Articles</button>
       </div>
 
-      <div id="keywordList" class="feed-list" style="margin-top: 1rem;"></div>
-      <div id="feedList" class="feed-list"></div>
+      <div id="keywordList" class="tag-list"></div>
+      <div id="feedList" class="tag-list"></div>
     </div>
 
     <div class="stats-grid">
